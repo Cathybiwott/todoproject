@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List Application</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <form>
+      <label for="heading">Task Heading:</label>
+      <input type="text" id="heading" name="heading"><br><br>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date"><br><br>
+      <label for="time">Time:</label>
+      <input type="time" id="time" name="time"><br><br>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="personal">Personal</option>
+        <option value="work">Work</option>
+        <option value="school">School</option>
+        <option value="other">Other</option>
+      </select><br><br>
+      <button type="submit" id="submit">Submit</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Task Heading</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tasks">
+      </tbody>
+    </table>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+

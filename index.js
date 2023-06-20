@@ -1,7 +1,11 @@
+
+fetch('https://dummyjson.com/todos')
+.then(res => res.json())
+.then(console.log);
 const tasks = [];
 
 function fetchTodos(userId) {
-  fetch(`https://dummyjson.com/todos/user/5`)
+  fetch(`https://dummyjson.com/todos`)
     .then(response => response.json())
     .then(data => {
       if (Array.isArray(data)) {
@@ -11,13 +15,12 @@ function fetchTodos(userId) {
             date: todo.date,
             time: todo.time,
             category: todo.category,
-            status: 'Incomplete'
+            status: todo.completed ? 'Complete' : 'Incomplete'
           });
         });
         displayTasks();
-      } else {
-        console.log("Data is not an array");
-      }
+        console.log(tasks); // log the tasks array to the console
+      } 
     })
     .catch(error => {
       console.log('Error:', error);
@@ -70,6 +73,10 @@ function displayTasks() {
     statusCell.textContent = task.status;
     row.appendChild(statusCell);
     const actionsCell = document.createElement('td');
+    const updateButton = document.createElement('button');
+    updateButton.textContent = 'Update';
+    updateButton.addEventListener('click', () => updateTask(index));
+    actionsCell.appendChild(updateButton);
     const completeButton = document.createElement('button');
     completeButton.textContent = 'Complete';
     completeButton.addEventListener('click', () => completeTask(index));
@@ -93,7 +100,7 @@ form.addEventListener('submit', event => {
   addTask(heading, date, time, category);
 });
 
-fetchTodos(5);
+fetchTodos(1);
 
 
   

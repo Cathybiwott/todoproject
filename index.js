@@ -19,7 +19,7 @@ function fetchTodos(userId) {
           });
         });
         displayTasks();
-        console.log(tasks); // log the tasks array to the console
+        console.log(tasks); 
       } 
     })
     .catch(error => {
